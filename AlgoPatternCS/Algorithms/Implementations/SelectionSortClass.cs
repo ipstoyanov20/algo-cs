@@ -9,15 +9,15 @@ public class SelectionSortClass : ISelectionSort, IBase
         int n = arr.Length;
         for (int i = 0; i < n - 1; i++)
         {
-            int minIndex = i;
+            int minIn = i;
             for (int j = i + 1; j < n; j++)
             {
-                if(arr[j] < arr[minIndex]) minIndex = j;
+                if (arr[j] < arr[minIn]) minIn = j;
             }
 
-            int temp = arr[minIndex];
-            arr[minIndex] = arr[i];
-            arr[i]= temp;
+            int t = arr[minIn];
+            arr[minIn] = arr[i];
+            arr[i] = t;
         }
     }
 
