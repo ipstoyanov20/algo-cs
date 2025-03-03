@@ -1,6 +1,6 @@
 ﻿namespace AlgoPatternCS.Patterns;
 
-public class Engine
+public class  Engine
 {
     public int HorsePower { get; set; }
     public string Name { get; set; }

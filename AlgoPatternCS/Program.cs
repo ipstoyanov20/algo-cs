@@ -1,13 +1,14 @@
-﻿using System.Security.Cryptography.X509Certificates;
-using AlgoPatternCS.Algorithms.Contracts;
+﻿using AlgoPatternCS.Algorithms.Contracts;
 using AlgoPatternCS.Algorithms.Implementations;
 using AlgoPatternCS.Patterns;
 
 namespace AlgoPatternCS;
 class Program
 {
-    
-    
+    public static  void ShowProg(Progress progress)
+    {
+        Console.WriteLine(progress.ProgressNumber);
+    }
     static void Main(string[] args)
     {
         // PROTOTYPE
@@ -15,11 +16,18 @@ class Program
         // prototypePattern.Run();
 
         // SINGLETON
-        //Singleton.Run();
+        //Singleton.Run(); 
+        
+        //Command
+        var worker = new Worker();
+        var command = CommandBuilder.CreateFrom<Progress>(ShowProg);
+        worker.LoadData(command);
 
-        // IBase algo = new InsertionSortClass();
-        //
+        // SORTING AND FINDING ALGO
+        // IBase algo = new MergeSortClass();
+        // IBaseSearch s = new LinearSearch();
         // int[] arr = { 38, 27, 43, 3, 9, 82, 10 };
         // algo.Run(arr);
+        // s.Find(3, arr);
     }
 }
