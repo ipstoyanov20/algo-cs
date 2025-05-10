@@ -25,10 +25,10 @@ public class QuickSortClass : IBase, IQuickSort
 
     public int Partition(int[] arr, int left, int right)
     {
-        int pivot = arr[right];
+        int pivot = arr[left];
         int i = left - 1;
 
-        for (int j = left; j < right; j++)
+        for (int j = left + 1; j <= right; j++)
         {
             if (arr[j] <= pivot)
             {
@@ -42,8 +42,8 @@ public class QuickSortClass : IBase, IQuickSort
         }
 
         int temp1 = arr[i + 1];
-        arr[i + 1] = arr[right];
-        arr[right] = temp1;
+        arr[i + 1] = arr[left];
+        arr[left] = temp1;
 
         return i + 1;
     }

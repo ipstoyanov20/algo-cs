@@ -21,6 +21,8 @@ public class MergeSortClass : IMergeSort, IBase
         int[] leftArr = new int[leftSize];
         int[] rightArr = new int[rightSize];
         
+        
+        
         Array.Copy(arr, left, leftArr, 0, leftSize);
         Array.Copy(arr, mid + 1, rightArr, 0, rightSize);
 

@@ -19,15 +19,15 @@ class Program
         //Singleton.Run(); 
         
         //Command
-        var worker = new Worker();
-        var command = CommandBuilder.CreateFrom<Progress>(ShowProg);
-        worker.LoadData(command);
+        // var worker = new Worker();
+        // var command = CommandBuilder.CreateFrom<Progress>(ShowProg);
+        // worker.LoadData(command);
 
-        // SORTING AND FINDING ALGO
-        // IBase algo = new MergeSortClass();
-        // IBaseSearch s = new LinearSearch();
-        // int[] arr = { 38, 27, 43, 3, 9, 82, 10 };
-        // algo.Run(arr);
-        // s.Find(3, arr);
+        //SORTING AND FINDING ALGO
+        IBase algo = new CountingSort();
+        IBaseSearch s = new LinearSearch();
+        int[] arr = { 38, 27, 43, 3, 9, 82, 10 };
+        algo.Run(arr);
+        s.Find(3, arr);
     }
 }
