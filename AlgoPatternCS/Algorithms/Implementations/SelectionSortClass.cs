@@ -6,18 +6,19 @@ public class SelectionSortClass : ISelectionSort, IBase
 {
     public void SelectionSort(int[] arr)
     {
-        
+
         int n = arr.Length;
-        for(int i = 0; i <= n - 1; i++)
+        for (int i = 0; i < n; i++)
         {
-            int minIn = i;
-            for(int j = i + 1; j <= n; j++)
+            int min = i;
+            for (int j = i + 1; j < n; j++)
             {
-                if(arr[j] < arr[minIn]) minIn = j;
+                if (arr[j] < arr[min]) min = j;
             }
-            int temp = arr[minIn];
-            arr[minIn] = arr[i];
-            arr[i] = temp;
+
+            int temp = arr[i];
+            arr[i] = arr[min];
+            arr[min] = temp;
         }
     }
 
@@ -30,5 +31,7 @@ public class SelectionSortClass : ISelectionSort, IBase
         {
             Console.Write(item + " ");
         }
+
+        Console.WriteLine();
     }
 }

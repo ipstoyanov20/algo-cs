@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Concurrent;
+using System.Data;
 using AlgoPatternCS.Algorithms.Contracts;
 
 namespace AlgoPatternCS.Algorithms.Implementations;
@@ -11,25 +12,25 @@ public class QuickSortClass : IBase, IQuickSort
 
         QuickSort(arr, 0, arr.Length - 1);
 
-        Console.WriteLine("Sorted array: " + string.Join(", ", arr));    }
+        Console.WriteLine("Sorted array: " + string.Join(", ", arr));
+    }
 
     public void QuickSort(int[] arr, int left, int right)
     {
-        if (left < right)
-        {
-            int pivotIndex = Partition(arr, left, right);
-            QuickSort(arr, left, pivotIndex - 1);
-            QuickSort(arr, pivotIndex + 1, right);
-        }
+        if(left >= right) return;
+        int pivotIndex = Partition(arr, left, right);
+        QuickSort(arr, left, pivotIndex - 1);
+        QuickSort(arr, pivotIndex + 1, right);
     }
 
-    public int Partition(int[] arr, int left, int right)
+    public int Partition(int[] arr, int l, int r)
     {
-        int pivot = arr[left];
-        int i = left - 1;
+        int pivot = arr[r];
+        int i = l - 1;
 
-        for (int j = left + 1; j <= right; j++)
+        for (int j = l; j < r; j++)
         {
+
             if (arr[j] <= pivot)
             {
                 i++;
@@ -42,9 +43,10 @@ public class QuickSortClass : IBase, IQuickSort
         }
 
         int temp1 = arr[i + 1];
-        arr[i + 1] = arr[left];
-        arr[left] = temp1;
-
+        arr[i + 1] = arr[r];
+        arr[r] = temp1;
+        
         return i + 1;
     }
+
 }

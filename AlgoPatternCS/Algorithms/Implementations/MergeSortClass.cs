@@ -4,44 +4,41 @@ namespace AlgoPatternCS.Algorithms.Implementations;
 
 public class MergeSortClass : IMergeSort, IBase
 {
-    public void MergeSort(int[] arr, int left, int right)
+    public void MergeSort(int[] arr, int l, int r)
     {
-        if(left >= right) return;
-        int mid = left + (right - left) / 2;
-        MergeSort(arr, left, mid);
-        MergeSort(arr, mid + 1, right);
-        Merge(arr, left, mid, right);
+        if(l>=r) return;
+        int mid = l + (r - l) / 2;
+        MergeSort(arr, l, mid);
+        MergeSort(arr, mid + 1, r);
+        Merge(arr, l, mid, r);
     }
 
-    public void Merge(int[] arr, int left, int mid, int right)
+    public void Merge(int[] arr, int l, int m, int r)
     {
-        int leftSize = mid - left + 1;
-        int rightSize = right - mid;
+        int lsize = m - l + 1;
+        int rsize = r - m;
 
-        int[] leftArr = new int[leftSize];
-        int[] rightArr = new int[rightSize];
+        int[] larr = new int[lsize];
+        int[] rarr = new int[rsize];
         
-        
-        
-        Array.Copy(arr, left, leftArr, 0, leftSize);
-        Array.Copy(arr, mid + 1, rightArr, 0, rightSize);
+        Array.Copy(arr, l, larr, 0, lsize);
+        Array.Copy(arr, m + 1, rarr, 0, rsize);
 
-        int i = 0, j = 0, k = left;
-        while (i < leftSize && j < rightSize)
+        int i = 0, j = 0, k = l;
+        while (i < lsize && j < rsize)
         {
-            arr[k++] = (leftArr[i] <= rightArr[j]) ? leftArr[i++] : rightArr[j++];
+            arr[k++] = (rarr[j] <= larr[i]) ? rarr[j++] : larr[i++];
         }
 
-        while (i < leftSize)
+        while (i < lsize)
         {
-            arr[k++] = leftArr[i++];
+            arr[k++] = larr[i++];
         }
-        while (j < rightSize)
+        
+        while (j < rsize)
         {
-            arr[k++] = rightArr[j++];
+            arr[k++] = rarr[j++];
         }
-
-
     }
 
     public void Run(int[] arr)

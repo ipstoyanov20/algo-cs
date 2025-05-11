@@ -24,8 +24,8 @@ class Program
         // worker.LoadData(command);
 
         //SORTING AND FINDING ALGO
-        IBase algo = new CountingSort();
-        IBaseSearch s = new LinearSearch();
+        IBase algo = new QuickSortClass();
+        IBaseSearch s = new BinarySearch();
         int[] arr = { 38, 27, 43, 3, 9, 82, 10 };
         algo.Run(arr);
         s.Find(3, arr);

@@ -13,6 +13,8 @@ public class InsertionSortClass : IInsertionSort, IBase
         {
             Console.Write(item + " ");
         }
+
+        Console.WriteLine();
     }
 
     public void InsertionSort(int[] arr)
@@ -22,7 +24,7 @@ public class InsertionSortClass : IInsertionSort, IBase
         {
             int key = arr[i];
             int j = i - 1;
-            while (j >=0&& arr[j] > key)
+            while (j >=0 && arr[j] > key)
             {
                 arr[j + 1] = arr[j];
                 j -= 1;
